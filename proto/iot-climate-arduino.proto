@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_package = "com.avegao.iot.climate.arduino";
+option java_outer_classname = "IotClimateArduinoProto";
+option objc_class_prefix = "ICA";
+option go_package = "github.com/avegao/iot-climate-arduino/proto;/iotClimateArduinoService";
+
+package com.avegao.iot.climate.arduino;
+
+service Arduino {
+    rpc GetTemperature(ArduinoRequest) returns (TemperatureResponse);
+}
+
+message ArduinoRequest {
+    string host = 1;
+    int32 port = 2;
+}
+
+message TemperatureResponse {
+    float temperature = 1;
+}

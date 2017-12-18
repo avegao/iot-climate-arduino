@@ -1,0 +1,30 @@
+version: "3.1"
+
+services:
+  climate-arduino:
+    image: avegao/iot-climate-arduino:local
+    container_name: iot-temp-service
+    command: --debug
+    build:
+      dockerfile: ./Dockerfile
+      context: .
+#    networks:
+#      - iot-temp
+#      - iot-arduino-temp
+    ports:
+       - "50000:50000"
+#    depends_on:
+#      - iot-arduino-temp-service
+#
+#  iot-arduino-temp-service:
+#     image: avegao/iot-arduino-temp-service:local
+#     container_name: iot-arduino-temp-service
+#     command: --debug
+#     networks:
+#       - iot-arduino-temp
+#
+#networks:
+#  iot-temp:
+#  iot-arduino-temp:
+#    external:
+#      name: iotarduino_iot-arduino-temp
